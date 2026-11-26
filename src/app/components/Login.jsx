@@ -13,14 +13,14 @@ import IconTrendingUp from './icons/TrendingUp'
 "> */
 function Login() {
     return (
-        <main className="min-h-dvh bg-gradient-to-br from-mybackground via-green-950/75 to-mybackground px-5 py-6 text-myforeground overflow-hidden scrollbar-non">
+        <main className="h-dvh bg-gradient-to-bl from-mybackground via-green-950/75 to-mybackground px-5 py-6 text-myforeground overflow-hidden scrollbar-non">
            
-            <header className="flex items-center pt-16 pb-8 gap-4" >
+            <header className="flex items-center pt-8 pb-8 gap-4" >
 
                 <span className=" flex h-[60px] w-[60px]  items-center justify-center rounded-[20px] bg-myprimary ">
                     <IconDumbbell
                         className="text-mybackground"
-                        size={28}
+                        size={26}
                         strokeWidth={2.1}
                     />
                 </span>
