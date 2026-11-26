@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --primary: #AFF03C;
+  --card: #151618;
+  --elevated: #232426;
+  --input: #232426;
+  --foreground: #F5F5F2;
+  --muted-foreground: #91938C;
+  --destructive: #FC5855;
+  --ai: #36CAF1;
+  --border: #FFFFFF14;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Manrope", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
