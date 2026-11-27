@@ -17,10 +17,10 @@ function Login() {
            
             <header className="flex items-center pt-8 pb-8 gap-4" >
 
-                <span className=" flex h-[60px] w-[60px]  items-center justify-center rounded-[20px] bg-myprimary ">
+                <span className=" flex h-[50px] w-[50px]  items-center justify-center rounded-[20px] bg-myprimary ">
                     <IconDumbbell
                         className="text-mybackground"
-                        size={26}
+                        size={25}
                         strokeWidth={2.1}
                     />
                 </span>
