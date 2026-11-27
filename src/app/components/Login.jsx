@@ -2,7 +2,7 @@
 import IconDumbbell from './icons/Dumbbell'
 import IconHistory from './icons/History'
 import IconTrendingUp from './icons/TrendingUp'
-
+import IconSparkles from './icons/Sparkles'
 //16 24 32
 /*</main> <main className="
   min-h-dvh
@@ -31,15 +31,15 @@ function Login() {
 
             </header>
 
-            <section className="flex flex-col gap-4 pt-6">
-                <span className='flex flex-row text-4xl font-bold pb-2'><h1>Supera tu </h1><h1 className="text-myprimary">última vez</h1></span>
+            <section className="flex flex-col gap-y-2 pt-2">
+                <h1 className="text-4xl font-bold">Supera tu <span className="text-myprimary">última vez</span>.</h1>
                 
-                <p className='pb-3 font-light text-base'>Registra series, consulta lo que levantaste la sesion pasda y progresa con sobrecarga progresiva.</p>
+                <p className=' font-normal text-[16px] text-mymuted-foreground'>Registra series, consulta lo que levantaste la sesión pasada y progresa con sobrecarga progresiva.</p>
                 
-
-                <span className='flex items-center gap-2 text-base pt-1 '><IconHistory className="text-myprimary" size={20} strokeWidth={1.5} /> Tu última sesión por grupo muscular</span>
-                <span className='flex items-center gap-2 text-base pt-1'><IconHistory className="text-myprimary" size={20} strokeWidth={1.8} /> Objetivos de hoy con IA</span>
-                <span className='flex items-center gap-2 text-base pt-1'><IconTrendingUp className="text-myprimary" size={20} strokeWidth={1.8} /> Gráficas de top sets y 1RM</span>
+               
+                <span className='flex items-center text-base  '><IconHistory className="text-myprimary" size={18} strokeWidth={1.5} /> Tu última sesión por grupo muscular</span>
+                <span className='flex items-center text-base '><IconSparkles className="text-myprimary" size={18} strokeWidth={1.5} /> Objetivos de hoy con IA</span>
+                <span className='flex items-center text-base '><IconTrendingUp className="text-myprimary" size={18} strokeWidth={1.8} /> Gráficas de top sets y 1RM</span>
             </section>
 
             <section className="flex flex-col gap-2 p-6 bg-mycard rounded-[24px]">

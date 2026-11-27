@@ -10,7 +10,7 @@
             myelevated: 'var(--elevated)',
             myinput: 'var(--input)',
             myforeground: 'var(--foreground)',
-            'muted-foreground': 'var(--muted-foreground)',
+            'mymuted-foreground': 'var(--mutedForeground)',
             mydestructive: 'var(--destructive)',
             myai: 'var(--ai)',
             myborder: 'var(--border)',
