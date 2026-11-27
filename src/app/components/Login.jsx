@@ -1,61 +1,281 @@
 
+import { useState } from 'react'
+
 import IconDumbbell from './icons/Dumbbell'
 import IconHistory from './icons/History'
 import IconTrendingUp from './icons/TrendingUp'
 import IconSparkles from './icons/Sparkles'
-//16 24 32
-/*</main> <main className="
-  min-h-dvh
-  bg-black
-  bg-[radial-gradient(ellipse_100%_55%_at_50%_0%,rgba(120,180,20,0.20),transparent_100%)]
-  px-5 py-6
-  text-myforeground
-"> */
-function Login() {
-    return (
-        <main className="h-dvh bg-gradient-to-bl from-mybackground via-green-950/75 to-mybackground px-5 py-6 text-myforeground overflow-hidden scrollbar-non">
-           
-            <header className="flex items-center pt-8 pb-8 gap-4" >
+import { IconEyeOpen, IconEyeClosed } from './icons/Eye'
 
-                <span className=" flex h-[50px] w-[50px]  items-center justify-center rounded-[20px] bg-myprimary ">
+function Login() {
+
+    const [showPassword, setShowPassword] = useState(false)
+    const [typeForm, setTypeForm] = useState("login")
+
+    const handleEye = () => {
+        setShowPassword(prev => !prev)
+    }
+
+    const handleTypeForm = (type) => {
+        setTypeForm(type)
+        setShowPassword(false)
+    }
+
+    const isLogin = typeForm === "login"
+
+    const inputStyles = `
+        h-[60px] w-full
+        rounded-2xl
+        border border-myborder
+        bg-myinput
+        px-4
+        text-base text-myforeground
+        outline-none
+        placeholder:text-mymuted
+        transition-colors
+        focus:border-myprimary
+        focus:ring-1
+        focus:ring-myprimary
+    `
+
+    return (
+
+        <main className="
+            min-h-dvh
+            bg-gradient-to-bl from-mybackground via-green-950/75 to-mybackground
+            px-5 py-6
+            text-myforeground
+        ">
+
+            <header className="flex items-center gap-4 pt-2 pb-8">
+
+                <span className="
+                    flex h-[60px] w-[60px] shrink-0
+                    items-center justify-center
+                    rounded-[20px]
+                    bg-myprimary
+                ">
                     <IconDumbbell
                         className="text-mybackground"
-                        size={25}
+                        size={28}
                         strokeWidth={2.1}
                     />
                 </span>
 
-                <span className="text-2xl tracking-tight font-normal">
+                <span className="text-2xl tracking-tight">
                     <b>GYMaiki</b>
                 </span>
 
             </header>
 
-            <section className="flex flex-col gap-y-2 pt-2">
-                <h1 className="text-4xl font-bold">Supera tu <span className="text-myprimary">última vez</span>.</h1>
-                
-                <p className=' font-normal text-[16px] text-mymuted-foreground'>Registra series, consulta lo que levantaste la sesión pasada y progresa con sobrecarga progresiva.</p>
-                
-               
-                <span className='flex items-center text-base  '><IconHistory className="text-myprimary" size={18} strokeWidth={1.5} /> Tu última sesión por grupo muscular</span>
-                <span className='flex items-center text-base '><IconSparkles className="text-myprimary" size={18} strokeWidth={1.5} /> Objetivos de hoy con IA</span>
-                <span className='flex items-center text-base '><IconTrendingUp className="text-myprimary" size={18} strokeWidth={1.8} /> Gráficas de top sets y 1RM</span>
+
+            {/* INFORMACIÓN DE LA APP */}
+            <section className="flex flex-col gap-3 pt-2">
+
+                <h1 className="text-4xl font-bold tracking-tight">
+                    Supera tu <span className="text-myprimary">última vez</span>.
+                </h1>
+
+                <p className="text-base font-normal text-mymuted">
+                    Registra series, consulta lo que levantaste la sesión pasada
+                    y progresa con sobrecarga progresiva.
+                </p>
+
+                {/* BENEFICIOS */}
+                <div className="flex flex-col gap-3 pt-5 pb-10">
+
+                    <span className="flex items-center gap-3 text-[15px]">
+                        <IconHistory
+                            className="shrink-0 text-myprimary"
+                            size={18}
+                            strokeWidth={1.8}
+                        />
+                        Tu última sesión por grupo muscular
+                    </span>
+
+                    <span className="flex items-center gap-3 text-[15px]">
+                        <IconSparkles
+                            className="shrink-0 text-myprimary"
+                            size={18}
+                            strokeWidth={1.8}
+                        />
+                        Objetivos de hoy con IA
+                    </span>
+
+                    <span className="flex items-center gap-3 text-[15px]">
+                        <IconTrendingUp
+                            className="shrink-0 text-myprimary"
+                            size={18}
+                            strokeWidth={1.8}
+                        />
+                        Gráficas de top sets y 1RM
+                    </span>
+
+                </div>
+
             </section>
 
-            <section className="flex flex-col gap-2 p-6 bg-mycard rounded-[24px]">
 
-                <div className='flex flex-row  bg-myelevated p-1 text-justify rounded-[24px]'>
-                    <button className='bg-mybackground rounded-[24px] w-full'>Iniciar sesión</button>
-                    <button className='bg-mybackground rounded-[24px] w-full'>Registrarse</button>
+            {/* AUTENTICACIÓN */}
+            <section className="
+                flex flex-col gap-4
+                rounded-[28px]
+                bg-mycard
+                p-6
+            ">
+
+                {/* SELECTOR LOGIN / REGISTER */}
+                <div className="
+                    grid grid-cols-2
+                    rounded-2xl
+                    bg-myelevated
+                    p-1
+                ">
+
+                    <button
+                        type="button"
+                        onClick={() => handleTypeForm("login")}
+                        className={`
+                            rounded-xl py-3
+                            text-base font-semibold
+                            transition-colors duration-200
+                            ${isLogin
+                                ? "bg-mybackground text-myforeground"
+                                : "text-mymuted-foreground"
+                            }
+                        `}
+                    >
+                        Iniciar sesión
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => handleTypeForm("register")}
+                        className={`
+                            rounded-xl py-3
+                            text-base font-semibold
+                            transition-colors duration-200
+                            ${!isLogin
+                                ? "bg-mybackground text-myforeground"
+                                : "text-mymuted-foreground"
+                            }
+                        `}
+                    >
+                        Crear cuenta
+                    </button>
+
                 </div>
-                <form className="flex flex-col gap-2 pt-4 ">
-                    <input className='bg-myinput' type="email" name="email" for="email" id="email" placeholder="Email" />
-                    <input className='bg-myinput' type="password" name="password" for="password" id="password" placeholder="Password" />
 
-                    <button className='bg-myprimary text-mybackground font-medium'>Entrar</button>
+
+                {/* FORMULARIO */}
+                <form
+                    className="flex flex-col gap-3"
+                    onSubmit={(e) => e.preventDefault()}
+                >
+
+                    {/* NOMBRE DE USUARIO */}
+                    {!isLogin && (
+                        <input
+                            className={inputStyles}
+                            type="text"
+                            name="username"
+                            id="username"
+                            placeholder="Nombre de usuario"
+                            autoComplete="username"
+                            required
+                        />
+                    )}
+
+
+                    {/* EMAIL */}
+                    <input
+                        className={inputStyles}
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Email"
+                        autoComplete="email"
+                        required
+                    />
+
+
+                    {/* CONTRASEÑA */}
+                    <div className="
+                        flex h-[60px] w-full
+                        items-center
+                        rounded-2xl
+                        border border-myborder
+                        bg-myinput
+                        px-4
+                        transition-colors
+                        focus-within:border-myprimary
+                        focus-within:ring-1
+                        focus-within:ring-myprimary
+                    ">
+
+                        <input
+                            className="
+                                min-w-0 flex-1
+                                bg-transparent
+                                text-base text-myforeground
+                                outline-none
+                                placeholder:text-mymuted
+                            "
+                            type={showPassword ? "text" : "password"}
+                            name="password"
+                            id="password"
+                            placeholder="Contraseña"
+                            autoComplete={isLogin
+                                ? "current-password"
+                                : "new-password"
+                            }
+                            required
+                        />
+
+                        <button
+                            type="button"
+                            onClick={handleEye}
+                            className="
+                                ml-2 shrink-0
+                                text-mymuted
+                                transition-colors
+                                hover:text-myforeground
+                            "
+                            aria-label={showPassword
+                                ? "Ocultar contraseña"
+                                : "Mostrar contraseña"
+                            }
+                        >
+                            {showPassword
+                                ? <IconEyeOpen size={22} strokeWidth={2} />
+                                : <IconEyeClosed size={22} strokeWidth={2} />
+                            }
+                        </button>
+
+                    </div>
+
+
+                    {/* BOTÓN SUBMIT */}
+                    <button
+                        type="submit"
+                        className="
+                            h-[60px] w-full
+                            rounded-2xl
+                            bg-myprimary
+                            font-semibold
+                            text-mybackground
+                            transition-opacity
+                            hover:opacity-90
+                            active:opacity-80
+                        "
+                    >
+                        {isLogin ? "Entrar" : "Crear cuenta"}
+                    </button>
+
                 </form>
 
             </section>
+
         </main>
     )
 }
